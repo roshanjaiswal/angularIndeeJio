@@ -1,0 +1,111 @@
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+  top: 68px;
+  a {
+	  display: block;
+	  color: black;
+	  padding: 16px;
+	  text-decoration: none;
+	  font-size: 15px;
+	}
+}
+ 
+.sidebar a.active {
+  background-color: #0c4d81;
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+.mobileMenu{
+  display: none;
+  z-index: 999;
+  .glyphicon {
+    font-size: 20px;
+    top: 5px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: fixed;
+	
+	a {float: left;}
+  }
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar {
+    z-index: 99;
+	  a {
+      text-align: center;
+      float: none;
+      border-bottom: 1px #0c4d81 solid;
+	  }
+  }
+  .mobileMenu{
+    display: block;
+    position: fixed;
+    right: 10px;
+    top: 15px;
+  }
+  .hideMobileNav{
+	  display: none;
+  }
+}
+@media screen and (min-width: 400px) and (max-width: 527px) {
+	.sidebar a {
+	  padding: 10px;
+	  font-size: 10px;
+	}
+}
+
+@media screen and (min-width: 528px) and (max-width: 582px) {
+	.sidebar a {
+	  padding: 9px;
+	}
+}
+
+@media screen and (min-width: 700px){
+	.sidebar a {
+	  border-bottom: 1px #0c4d81 solid;
+	}
+}
+
+
+a span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+a span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+a:hover span {
+  padding-right: 30px;
+}
+
+a:hover span:after {
+  opacity: 1;
+  right: 0;
+}

@@ -1,0 +1,49 @@
+<div class="indeeJioPageHeader">
+    Post Your Requirements Here.
+  </div>
+  <div class="postReq indeeJio">
+    <h2 class="postReq-header indeeJio-header">Post Requirements Form</h2>
+    <form [formGroup]="postReqForm" (ngSubmit)="onSubmit()" class="postReq-container indeeJio-container">
+      
+      <p>
+          <input type="text" 
+                 formControlName="location" 
+                 id="defaultFormlocation" 
+                 placeholder="Location (Required)"
+                 [ngClass]="{'is-invalid': (postReqForm.get('location').touched ||
+                                              postReqForm.get('location').dirty) &&
+                                              !postReqForm.get('location').valid }">
+      </p>
+             
+      <p>
+          <input type="text" 
+                 formControlName="contact" 
+                 id="defaultFormContact" 
+                 placeholder="Contact (Required)"
+                 [ngClass]="{'is-invalid': (postReqForm.get('contact').touched ||
+                                              postReqForm.get('contact').dirty) &&
+                                              !postReqForm.get('contact').valid }">
+      </p>
+
+      <p>
+          <input type="text" 
+                 formControlName="name" 
+                 id="defaultFormName" 
+                 placeholder="Name (Required)"
+                 [ngClass]="{'is-invalid': (postReqForm.get('name').touched ||
+                                              postReqForm.get('name').dirty) &&
+                                              !postReqForm.get('name').valid }">
+      </p>
+      <p>
+        <select class="custom-select" (change)="changeCity($event)" formControlName="categorie">
+            <option class="dropdownValue" value="" disabled>Choose a categorie</option>
+            <option class="dropdownValue" *ngFor="let categorie of categories" [ngValue]="city">{{categorie}}</option>
+        </select>
+      </p>
+     
+
+      <p>
+        <button [disabled]="!postReqForm.valid"> Submit </button>
+      </p>
+    </form>
+  </div>
